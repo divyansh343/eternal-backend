@@ -7,13 +7,14 @@ const profileController = (req, res, next) => {
         name: req.body.name,
     };
     User.updateOne({
-        user: req.userObjectID
+        _id: req.userObjectID
     }, influ).then(
         (response) => {
             res.status(201).json({
                 status: 200,
                 sucess: true,
-                message: "name updated sucessfully",
+                message: `name updated sucessfully to ${req.body.name}`,
+                name: req.body.name
             });
         }
     ).catch(
@@ -37,7 +38,7 @@ const passController = async (req, res, next) => {
             };
 
             User.updateOne({
-                user: req.userObjectID
+                _id: req.userObjectID
             }, influ).then(
                 (response) => {
                     res.status(201).json({
@@ -66,8 +67,8 @@ const passController = async (req, res, next) => {
 }
 
 const detailsController = (req, res) => {
-    User.findOne({
-        user: req.userObjectID
+    User.find({
+        _id: req.userObjectID
     }).then(
         (response) => {
             res.status(200).json(response);
