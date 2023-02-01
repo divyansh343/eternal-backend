@@ -2,7 +2,7 @@ const  mongoose  = require("mongoose");
 
 // mongo
 const mongoConnect = () => {
-    const Uri = `mongodb+srv://divyansh:amapirate@testcluster.ywjkt.mongodb.net/eternal?retryWrites=true&w=majority`
+    const Uri = `mongourl`
 
     mongoose.connect(Uri, { useNewUrlParser: true });
     var conn = mongoose.connection;
